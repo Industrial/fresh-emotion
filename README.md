@@ -1,7 +1,8 @@
 # Fresh Emotion
 
 A plugin for [Fresh](https://github.com/denoland/fresh) that allows you to use
-[Emotion](https://github.com/emotion-js/emotion) for styling.
+[Emotion](https://github.com/emotion-js/emotion) for styling. Doesn't use
+`@emotion/react` but `@emotion/css` instead.
 
 # Usage
 
