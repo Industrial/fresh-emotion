@@ -1,41 +1,74 @@
-# Skeleton: Deno
+# Fresh Emotion
 
-This is a starter project for Deno projects.
+A plugin for [Fresh](https://github.com/denoland/fresh) that allows you to use
+[Emotion](https://github.com/emotion-js/emotion) for styling.
 
-## Installation
+# Usage
 
-```bash
-git clone git@github.com:Industrial/skeleton-deno.git my-project
-cd my-project
-rm -rf .git
-```
+- Add this to your `import_map.json`:
 
-## Usage
+  ```json
+  "@emotion/css/create-instance": "https://esm.sh/@emotion/css/create-instance",
+  ```
 
-### Install dependencies
+- Create a file in your project e.g. `emotion.ts`. This file will create the
+  emotion instance and you can use it throughout your project.
 
-This will install pnpm, husky and lint-staged.
+  ```typescript
+  import createEmotion from "@emotion/css/create-instance";
 
-When making commits, will run the following processes:
+  export const {
+    flush,
+    hydrate,
+    cx,
+    merge,
+    getRegisteredStyles,
+    injectGlobal,
+    keyframes,
+    css,
+    sheet,
+    cache,
+  } = createEmotion({
+    key: "css",
+  });
+  ```
 
-- Tests with coverage reporting (LCOV).
-- Linting on all staged files.
+- In your `main.ts`, import the plugin:
 
-```bash
-deno task install-dependencies
-```
+  ```typescript
+  import { cache } from "./emotion.ts";
+  import { emotionPlugin } from "./lib/fresh/emotion.ts";
+  ```
 
-### Lint
+- Then use it with Fresh.
 
-```bash
-deno task lint
-deno task lint:watch
-```
+  ```typescript
+  await start(manifest, {
+    plugins: [
+      emotionPlugin({
+        cache,
+      }),
+    ],
+  });
+  ```
 
-### Test
+- In a Component, e.g. `components/MyComponent.tsx`:
 
-```bash
-deno task test
-deno task test:watch
-deno task test:coverage
+```typescript
+import { css, cx } from "../emotion.ts";
+
+export function MyComponent() {
+  return (
+    <div
+      className={cx(
+        css({
+          color: "yellow",
+          backgroundColor: "hotpink",
+        }),
+      )}
+    >
+      <p>CSS-in-Fresh!</p>
+    </div>
+  );
+}
 ```
