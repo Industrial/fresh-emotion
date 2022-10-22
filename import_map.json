@@ -7,8 +7,9 @@
     "preact-render-to-string": "https://esm.sh/preact-render-to-string",
     "preact/hooks": "https://esm.sh/preact/hooks",
 
-    "@emotion/server/create-instance": "https://esm.sh/@emotion/server@11.10.0/create-instance",
     "@emotion/cache": "https://esm.sh/@emotion/cache@11.10.3",
+    "@emotion/css/create-instance": "https://esm.sh/@emotion/css@11.10.0/create-instance",
+    "@emotion/server/create-instance": "https://esm.sh/@emotion/server@11.10.0/create-instance",
 
     "#/": "./"
   }

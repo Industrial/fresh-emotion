@@ -6,46 +6,15 @@ A plugin for [Fresh](https://github.com/denoland/fresh) that allows you to use
 
 # Usage
 
-1. Add this to your `import_map.json`:
-
-   ```json
-   "@emotion/css/create-instance": "https://esm.sh/@emotion/css/create-instance",
-   ```
-
-1. Create a file in your project e.g. `emotion.ts`. This file will create the
-   emotion instance and you can use it throughout your project.
-
-   ```typescript
-   import createEmotion from "@emotion/css/create-instance";
-
-   export const {
-     flush,
-     hydrate,
-     cx,
-     merge,
-     getRegisteredStyles,
-     injectGlobal,
-     keyframes,
-     css,
-     sheet,
-     cache,
-   } = createEmotion({
-     key: "css",
-   });
-   ```
-
 1. In your `main.ts`, import the plugin:
 
    ```typescript
-   import { cache } from "./emotion.ts";
-   import { emotionPlugin } from "./lib/fresh/emotion.ts";
+   import { emotionPlugin } from "https://deno.land/x/fresh_emotion/mod.ts";
 
    // Then use it with Fresh.
    await start(manifest, {
      plugins: [
-       emotionPlugin({
-         cache,
-       }),
+       emotionPlugin(),
      ],
    });
    ```
@@ -53,7 +22,7 @@ A plugin for [Fresh](https://github.com/denoland/fresh) that allows you to use
 1. In a Component, e.g. `components/MyComponent.tsx`:
 
    ```typescript
-   import { css, cx } from "../emotion.ts";
+   import { css, cx } from "https://deno.land/x/fresh_emotion/mod.ts";
 
    export function MyComponent() {
      return (
