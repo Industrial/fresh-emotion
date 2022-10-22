@@ -54,21 +54,21 @@ A plugin for [Fresh](https://github.com/denoland/fresh) that allows you to use
 
 - In a Component, e.g. `components/MyComponent.tsx`:
 
-```typescript
-import { css, cx } from "../emotion.ts";
+  ```typescript
+  import { css, cx } from "../emotion.ts";
 
-export function MyComponent() {
-  return (
-    <div
-      className={cx(
-        css({
-          color: "yellow",
-          backgroundColor: "hotpink",
-        }),
-      )}
-    >
-      <p>CSS-in-Fresh!</p>
-    </div>
-  );
-}
-```
+  export function MyComponent() {
+    return (
+      <div
+        className={cx(
+          css({
+            color: "yellow",
+            backgroundColor: "hotpink",
+          }),
+        )}
+      >
+        <p>CSS-in-Fresh!</p>
+      </div>
+    );
+  }
+  ```
