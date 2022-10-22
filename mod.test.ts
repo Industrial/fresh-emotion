@@ -1,6 +1,9 @@
-import { emotionPlugin } from "#/mod.ts";
-import { assertEquals } from "std/testing/asserts.ts";
+import * as mod from "#/mod.ts";
+import { assertObjectMatch } from "std/testing/asserts.ts";
 
-Deno.test("emotionPlugin", () => {
-  assertEquals(1 + 2, 3);
+Deno.test("mod exports", () => {
+  const actual = mod;
+  const expected = {};
+
+  assertObjectMatch(actual, expected);
 });
