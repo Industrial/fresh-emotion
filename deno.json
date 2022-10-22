@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "dev": "echo \"TODO: Implement\"",
+    "install-dependencies": "npm i -g pnpm; pnpm i",
+    "lint": "deno lint",
+    "lint:watch": "deno task lint --watch",
+    "test": "deno test",
+    "test:coverage": "deno task test --coverage=./coverage && deno coverage ./coverage --lcov --output=./coverage/coverage.lcov && deno coverage ./coverage",
+    "test:watch": "deno task test --watch"
+  },
+  "importMap": "./import_map.json"
+}
